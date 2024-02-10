@@ -1,66 +1,149 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 作るもの
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+ランガリー
+「Language」（言語）と「Diary」（日記）を組み合わせた造語です。
+言語学習アプリケーションです。
 
-## About Laravel
+## なぜ作るか？
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+このアプリは、言語学習の一環として日記を書くことの効果を活用します。YouTuber の影響で英語日記の作成を推奨していることに興味を持ち始め、実際に友人たちと第一言語で日記を書き、それを学習中の言語に翻訳し、さらに ChatGPT で添削を受けるというプロセスを経て、多くの学びと発見があることを実感しました。
+この経験は、言語学習における新しい方法として、とても面白く刺激的でした。
+しかし、notion を使用して交流をしていたため、無料枠はすぐに使い切ってしまいました。
+そのうえ、クローズドな環境になってしまうので、特定の友人としか使えない手法でした。
+なので、学習したい多くの人が気軽に使えるアプリを開発したいということがきっかけです。
+また、個人的なポートフォリオの充実もこのアプリ開発の動機の一つです。過去に楽しく体験したモブプログラミングの経験も生かし、チームで楽しみながら開発を進めます。
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+そして、このアプリを通して、色々な国の人々の言語学習に役立ち、日記の作成を通して相互理解やお互いの尊重に繋がることに寄与することを望んでいます。
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## プロセス
 
-## Learning Laravel
+自分の言語で日記を書く -> 学習している言語で日記を書く -> OpenAI API で添削してもらう
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+# ランガリー アプリ開発 - 技術スタック
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## フロントエンド
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- React.js
+- TailwindCSS
+- TypeScript
 
-## Laravel Sponsors
+## バックエンド
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- Laravel
+<!-- - Laravel Sanctum (認証用) -->
 
-### Premium Partners
+## データベース
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+- AWS Aurora
+<!-- - Redis (セッション管理・キャッシュ用) -->
 
-## Contributing
+## API 通信
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- OpenAI API
+- AWS API Gateway
+<!-- - AWS Lambda -->
 
-## Code of Conduct
+## 認証
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- Laravel Breeze
+- Laravel Socialite
 
-## Security Vulnerabilities
+## テスト
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- PHPUnit
+<!-- - Laravel Dusk -->
 
-## License
+## コンテナ
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- Docker
+
+## インフラ
+
+- AWS (Amazon Web Services)
+  - EC2
+
+## バージョン管理
+
+- GitHub
+
+## ワイヤーフレーム
+
+- Figma
+
+## ツール
+
+Postman
+
+## ER 図
+
+```mermaid
+erDiagram
+
+
+    Users ||--o{ Posts : "writes"
+    Users ||--o{ Favorites : "marks"
+    Users ||--o{ UserFollows : "follows"
+    Posts ||--o{ Favorites : "is marked by"
+    Languages ||--o{ Users : "language setting"
+    Languages ||--o{ Posts : "used in"
+
+Users {
+INT id PK "Primary Key"
+VARCHAR name
+VARCHAR email
+VARCHAR password
+VARCHAR profile_image
+INT native_language_id FK "Foreign Key to language.id"
+INT learning_language_id FK "Foreign Key to language.id"
+VARCHAR purpose
+BOOLEAN retire_flag
+DATETIME last_sign_in_at
+DATETIME created_at
+DATETIME updated_at
+}
+
+    Posts {
+        INT id PK "Primary Key"
+        INT user_id FK "Foreign Key to Users.id"
+        TEXT native_diary
+        TEXT learning_diary
+        TEXT check_diary
+        INT local_language_id FK "Foreign Key to language.id"
+        INT learning_language_id FK "Foreign Key to language.id"
+        VARCHAR purpose
+        BOOLEAN retire_flag
+        DATETIME last_sign_in_at
+        DATETIME created_at
+        DATETIME update_at
+    }
+
+    Admin {
+        INT id PK "Primary Key"
+        VARCHAR email
+        VARCHAR password
+        DATETIME created_at
+        DATETIME update_at
+    }
+
+    Favorites {
+        INT id PK "Primary Key"
+        INT user_id FK "Foreign Key to Users.id"
+        INT post_id FK "Foreign Key to Posts.id"
+    }
+
+    UserFollows {
+        INT id PK "Primary Key"
+        INT following_id FK "Foreign Key to Users.id"
+        INT follower_id FK "Foreign Key to Users.id"
+    }
+
+    Languages {
+        INT id PK "Primary Key"
+        VARCHAR language_name
+    }
+
+```
+
+## AWS アーキテクチャ
+
+![](/images//ランガリー_AWS_アーキテクチャ.png)
