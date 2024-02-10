@@ -23,52 +23,52 @@
 
 ## フロントエンド
 
-- React.js
-- TailwindCSS
-- TypeScript
+-   React.js
+-   TailwindCSS
+-   TypeScript
 
 ## バックエンド
 
-- Laravel
+-   Laravel
 <!-- - Laravel Sanctum (認証用) -->
 
 ## データベース
 
-- AWS Aurora
+-   AWS Aurora
 <!-- - Redis (セッション管理・キャッシュ用) -->
 
 ## API 通信
 
-- OpenAI API
-- AWS API Gateway
+-   OpenAI API
+-   AWS API Gateway
 <!-- - AWS Lambda -->
 
 ## 認証
 
-- Laravel Breeze
-- Laravel Socialite
+-   Laravel Breeze
+-   Laravel Socialite
 
 ## テスト
 
-- PHPUnit
+-   PHPUnit
 <!-- - Laravel Dusk -->
 
 ## コンテナ
 
-- Docker
+-   Docker
 
 ## インフラ
 
-- AWS (Amazon Web Services)
-  - EC2
+-   AWS (Amazon Web Services)
+    -   EC2
 
 ## バージョン管理
 
-- GitHub
+-   GitHub
 
 ## ワイヤーフレーム
 
-- Figma
+-   Figma
 
 ## ツール
 
@@ -146,4 +146,4 @@ DATETIME updated_at
 
 ## AWS アーキテクチャ
 
-![](/images//ランガリー_AWS_アーキテクチャ.png)
+![](storage/images/ランガリー_AWS_アーキテクチャ.png)
