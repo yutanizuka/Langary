@@ -1,11 +1,24 @@
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { resolve } from "path";
 
 export default defineConfig({
-    plugins: [
-        laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js'],
-            refresh: true,
-        }),
-    ],
+    plugins: [react()],
+    resolve: {
+        alias: {
+            "@": resolve(__dirname, "./resources/js"),
+        },
+    },
+    build: {
+        rollupOptions: {
+            // プロジェクトのルートからの相対パスに修正
+            input: {
+                main: resolve(__dirname, "./resources/js/Pages/Index.jsx"),
+                another: resolve(
+                    __dirname,
+                    "./resources/js/Pages/Dashboard.jsx"
+                ),
+            },
+        },
+    },
 });

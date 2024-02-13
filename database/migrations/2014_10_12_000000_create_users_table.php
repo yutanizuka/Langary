@@ -18,11 +18,11 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('profile_image');
-            $table->integer('native_language_id');
-            $table->integer('learning_language_id');
-            $table->string('purpose');
-            $table->string('retire_flag');
-            $table->timestamp('last_sign_in_at');
+            $table->integer('native_language_id')->nullable();
+            $table->integer('learning_language_id')->nullable();
+            $table->string('purpose')->nullable();
+            $table->string('retire_flag')->default(0);
+            $table->timestamp('last_sign_in_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
