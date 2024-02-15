@@ -2,6 +2,7 @@
     "private": true,
     "type": "module",
     "scripts": {
+        "start": "WATCHPACK_POLLING=true react-scripts start",
         "dev": "vite",
         "build": "vite build"
     },
