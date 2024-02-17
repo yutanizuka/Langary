@@ -40,6 +40,14 @@ export default function UpdateProfileInformation({
 
             <form onSubmit={submit} className="mt-6 space-y-6">
                 <div>
+                    <img
+                        src={
+                            user.profile_photo_url ||
+                            "/storage/images/profile_noname.jpg"
+                        }
+                        width="100px"
+                        alt="プロフィール画像"
+                    />
                     <InputLabel htmlFor="name" value="Name" />
 
                     <TextInput
