@@ -31,7 +31,6 @@ export default function UpdateProfileInformation({
                     {/* Profile Information */}
                     ユーザー情報
                 </h2>
-
                 <p className="mt-1 text-sm text-gray-600">
                     {/* Update your account's profile information and email address. */}
                     アカウントとメールアドレスの更新
@@ -43,7 +42,7 @@ export default function UpdateProfileInformation({
                     <img
                         src={
                             user.profile_photo_url ||
-                            "/storage/images/profile_noname.jpg"
+                            "storage/images/icons/icon1.png"
                         }
                         width="100px"
                         alt="プロフィール画像"
