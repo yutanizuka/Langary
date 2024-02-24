@@ -102,11 +102,20 @@ export default function UpdateProfileInformation({
                 )}
                 <div className="flex items-center gap-4">
                     <p>学びたい言語</p>
-                    <p>{user.learning_language_id || "未設定"}</p>
+                    <select name="user.native_language_id" id="">
+                        <option value="0">未設定</option>
+                        <option value="1"></option>
+                        <option value="2"></option>
+                    </select>
                 </div>
+
                 <div className="flex items-center gap-4">
                     <p>あなたの母国語</p>
-                    <p>{user.native_language_id || "未設定"}</p>
+                    <select name="user.native_language_id" id="">
+                        <option value="0">未設定</option>
+                        <option value="1"></option>
+                        <option value="2"></option>
+                    </select>
                 </div>
 
                 <div className="flex items-center gap-4">
