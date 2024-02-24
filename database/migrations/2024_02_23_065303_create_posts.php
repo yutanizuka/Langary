@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('check_diary');
             $table->unsignedInteger('local_language_id');
             $table->unsignedInteger('learning_language_id');
-            $table->now('last_sign_in_at');
+            $table->timestamp('last_sign_in_at')->useCurrent();
             $table->boolean('private_flag');
             $table->timestamps();
 
