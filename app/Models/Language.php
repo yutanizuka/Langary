@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Language extends Model
 {
     use HasFactory;
+
+
+    public static function getAllLanguages()
+    {
+        return Language::all();
+    }
 }
+
