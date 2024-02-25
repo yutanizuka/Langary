@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import PrimaryButton from "@/Components/PrimaryButton";
@@ -18,9 +19,26 @@ export default function UpdateProfileInformation({
             email: user.email,
         });
 
+    // コンポーネント内部
+    const [languages, setLanguages] = useState([]);
+
+    useEffect(() => {
+        // APIから言語リストを取得する仮の関数
+        const fetchLanguages = async () => {
+            try {
+                const response = await fetch("/api/languages"); // APIのURLは適宜変更してください
+                const data = await response.json();
+                setLanguages(data); // 取得した言語リストで状態を更新
+            } catch (error) {
+                console.error("言語リストの取得に失敗しました", error);
+            }
+        };
+
+        fetchLanguages();
+    }, []); // 空の依存配列を渡して、コンポーネントのマウント時にのみ実行されるようにする
+
     const submit = (e) => {
         e.preventDefault();
-
         patch(route("profile.update"));
     };
 
@@ -102,19 +120,29 @@ export default function UpdateProfileInformation({
                 )}
                 <div className="flex items-center gap-4">
                     <p>学びたい言語</p>
-                    <select name="user.native_language_id" id="">
+                    <select
+                        name="ser.learning_language_id"
+                        id="learning_language"
+                    >
                         <option value="0">未設定</option>
-                        <option value="1"></option>
-                        <option value="2"></option>
+                        {languages.map((language) => (
+                            <option key={language.id} value={language.id}>
+                                {language.name}
+                            </option>
+                        ))}
                     </select>
                 </div>
 
                 <div className="flex items-center gap-4">
                     <p>あなたの母国語</p>
-                    <select name="user.native_language_id" id="">
+                    <select name="user.native_language_id" id="native_language">
+                        {" "}
                         <option value="0">未設定</option>
-                        <option value="1"></option>
-                        <option value="2"></option>
+                        {languages.map((language) => (
+                            <option key={language.id} value={language.id}>
+                                {language.name}
+                            </option>
+                        ))}
                     </select>
                 </div>
 
