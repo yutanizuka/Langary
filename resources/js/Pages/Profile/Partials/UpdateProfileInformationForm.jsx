@@ -12,6 +12,12 @@ export default function UpdateProfileInformation({
     className = "",
 }) {
     const user = usePage().props.auth.user;
+    const [learningLanguageId, setLearningLanguageId] = useState(
+        user.learning_language_id || "0"
+    );
+    const [nativeLanguageId, setNativeLanguageId] = useState(
+        user.native_language_id || "0"
+    );
 
     const { data, setData, patch, errors, processing, recentlySuccessful } =
         useForm({
@@ -37,11 +43,20 @@ export default function UpdateProfileInformation({
         fetchLanguages();
     }, []); // 空の依存配列を渡して、コンポーネントのマウント時にのみ実行されるようにする
 
+    // 言語設定の変更をハンドルする関数
+    const handleLearningLanguageChange = (e) => {
+        setLearningLanguageId(e.target.value);
+    };
+
+    const handleNativeLanguageChange = (e) => {
+        setNativeLanguageId(e.target.value);
+    };
+
     const submit = (e) => {
         e.preventDefault();
         patch(route("profile.update"));
     };
-
+    console.log(user);
     return (
         <section className={className}>
             <header>
@@ -123,11 +138,13 @@ export default function UpdateProfileInformation({
                     <select
                         name="ser.learning_language_id"
                         id="learning_language"
+                        value={learningLanguageId} // value属性を設定
+                        onChange={handleLearningLanguageChange} // onChangeイベントハンドラーを設定
                     >
                         <option value="0">未設定</option>
                         {languages.map((language) => (
                             <option key={language.id} value={language.id}>
-                                {language.name}
+                                {language.language_name}
                             </option>
                         ))}
                     </select>
@@ -135,12 +152,16 @@ export default function UpdateProfileInformation({
 
                 <div className="flex items-center gap-4">
                     <p>あなたの母国語</p>
-                    <select name="user.native_language_id" id="native_language">
-                        {" "}
+                    <select
+                        name="user.native_language_id"
+                        id="native_language"
+                        value={nativeLanguageId}
+                        onChange={handleNativeLanguageChange}
+                    >
                         <option value="0">未設定</option>
                         {languages.map((language) => (
                             <option key={language.id} value={language.id}>
-                                {language.name}
+                                {language.language_name}
                             </option>
                         ))}
                     </select>

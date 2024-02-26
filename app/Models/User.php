@@ -31,7 +31,7 @@ class User extends Authenticatable
 
     /**
      * The attributes that should be hidden for serialization.
-     *p
+     *
      * @var array<int, string>
      */
     protected $hidden = [
@@ -48,4 +48,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function nativeLanguage(){
+    return $this->belongsTo(Language::class, 'native_language_id');
+}
+
+public function learningLanguage(){
+    return $this->belongsTo(Language::class, 'learning_language_id');
+}
 }
