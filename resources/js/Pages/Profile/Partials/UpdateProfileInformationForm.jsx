@@ -23,6 +23,8 @@ export default function UpdateProfileInformation({
         useForm({
             name: user.name,
             email: user.email,
+            learning_language_id: user.learning_language_id || "0", // 初期値として設定
+            native_language_id: user.native_language_id || "0", // 初期値として設定
         });
 
     // コンポーネント内部
@@ -43,20 +45,17 @@ export default function UpdateProfileInformation({
         fetchLanguages();
     }, []); // 空の依存配列を渡して、コンポーネントのマウント時にのみ実行されるようにする
 
-    // 言語設定の変更をハンドルする関数
-    const handleLearningLanguageChange = (e) => {
-        setLearningLanguageId(e.target.value);
-    };
-
-    const handleNativeLanguageChange = (e) => {
-        setNativeLanguageId(e.target.value);
+    const handleLanguageChange = (e) => {
+        const { name, value } = e.target;
+        setData((data) => ({ ...data, [name]: value }));
     };
 
     const submit = (e) => {
         e.preventDefault();
-        patch(route("profile.update"));
+        patch(route("profile.update"), data); // 更新されたdataを使用して送信
     };
-    console.log(user);
+    // console.log(user);
+    console.log(data);
     return (
         <section className={className}>
             <header>
@@ -136,10 +135,10 @@ export default function UpdateProfileInformation({
                 <div className="flex items-center gap-4">
                     <p>学びたい言語</p>
                     <select
-                        name="ser.learning_language_id"
+                        name="learning_language_id"
                         id="learning_language"
-                        value={learningLanguageId} // value属性を設定
-                        onChange={handleLearningLanguageChange} // onChangeイベントハンドラーを設定
+                        value={data.learning_language_id} // useFormのdataを使用
+                        onChange={handleLanguageChange}
                     >
                         <option value="0">未設定</option>
                         {languages.map((language) => (
@@ -153,10 +152,10 @@ export default function UpdateProfileInformation({
                 <div className="flex items-center gap-4">
                     <p>あなたの母国語</p>
                     <select
-                        name="user.native_language_id"
+                        name="native_language_id"
                         id="native_language"
-                        value={nativeLanguageId}
-                        onChange={handleNativeLanguageChange}
+                        value={data.native_language_id}
+                        onChange={handleLanguageChange}
                     >
                         <option value="0">未設定</option>
                         {languages.map((language) => (
