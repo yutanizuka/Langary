@@ -29,11 +29,20 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        $user = $request->user();
+        $user->fill($request->validated());
+
+        if ($user->isDirty('email')) {
+            $user->email_verified_at = null;
         }
+         // 言語IDの更新処理を追加
+        if ($request->has('learning_language_id')) {
+        $user->learning_language_id = $request->learning_language_id;
+    }
+    if ($request->has('native_language_id')) {
+        $user->native_language_id = $request->native_language_id;
+    }
 
         $request->user()->save();
 

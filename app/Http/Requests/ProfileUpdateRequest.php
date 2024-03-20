@@ -17,7 +17,11 @@ class ProfileUpdateRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255',
+            'learning_language_id' => ['nullable', 'exists:languages,id'], // この行を追加
+            'native_language_id' => ['nullable', 'exists:languages,id'], // この行を追加
+            Rule::unique(User::class)->ignore($this->user()->id)],
+
         ];
     }
 }

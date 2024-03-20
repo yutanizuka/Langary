@@ -29,6 +29,17 @@ export default function UpdateProfileInformation({
 
     // コンポーネント内部
     const [languages, setLanguages] = useState([]);
+    const [profileImage, setProfileImage] = useState(null);
+    const [previewImage, setPreviewImage] = useState(
+        user.profile_photo_url || "storage/images/icons/icon1.png"
+    );
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setProfileImage(file);
+            setPreviewImage(URL.createObjectURL(file));
+        }
+    };
 
     useEffect(() => {
         // APIから言語リストを取得する仮の関数
@@ -90,7 +101,6 @@ export default function UpdateProfileInformation({
                         isFocused
                         autoComplete="name"
                     />
-
                     <InputError className="mt-2" message={errors.name} />
                 </div>
 
